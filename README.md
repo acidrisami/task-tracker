@@ -1,16 +1,51 @@
-# React + Vite
+# Task Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + Vite task tracker app for students to add assignments, mark them complete, and delete them.
 
-Currently, two official plugins are available:
+## Features
+- Add assignment tasks via input and `Add Task` button
+- Complete tasks (toggles completed state with green text and ✔️)
+- Delete tasks
+- Empty state message when no tasks are pending
+- Tasks persist across page reloads using localStorage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Setup (local)
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open http://localhost:5173
 
-## Expanding the ESLint configuration
+## Build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run build
+npm run preview
+```
+
+## Deployment
+
+This project is configured for GitHub Pages via GitHub Actions.
+
+1. Set `base` in `vite.config.js`:
+   ```js
+   base: '/task-tracker/',
+   ```
+2. Commit and push to main
+3. GitHub Actions workflow in `.github/workflows/deploy.yml` builds and publishes `dist/`.
+4. Live URL:
+   `https://acidrisami.github.io/task-tracker/`
+
+## File Structure
+
+- `src/App.jsx` - main application with state and UI
+- `src/components/TaskItem.jsx` - task row component with complete/delete
+- `src/index.css` - Tailwind CSS base styles
+- `vite.config.js` - base config for site path
+
+## Notes
+- Tasks are persisted in browser localStorage
+- Built with React 18, Vite, and Tailwind CSS
+
